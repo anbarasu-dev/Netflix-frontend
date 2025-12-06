@@ -22,7 +22,7 @@ function Login() {
     setMsg("");
 
     try {
-      const { data } = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, {
+      const { data } = await axios.post("https://netflix-backend-d8c9.vercel.app", {
         email,
         password: pass,
       });
