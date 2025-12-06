@@ -22,10 +22,13 @@ function Login() {
     setMsg("");
 
     try {
-      const { data } = await axios.post("http://localhost:4000/login", {
-        email,
-        password: pass,
-      });
+      const { data } = await axios.post(
+        "https://netflix-backend-1-kejk.onrender.com/login",
+        {
+          email,
+          password: pass,
+        }
+      );
 
       if (data.success) {
         navigate("/welcomepage");
@@ -43,11 +46,7 @@ function Login() {
     <div className="relative w-full min-h-screen">
       <div className="fixed inset-0">
         <img className="w-full h-full object-cover" src={NetflixImage} alt="" />
-        <img
-          className="absolute top-2 left-2 w-[35%]"
-          src={NetflixLogo}
-          alt=""
-        />
+        <img className="absolute top-2 left-2 w-[35%]" src={NetflixLogo} alt="" />
       </div>
 
       <div className="bg-black/75 rounded-md md:w-[30%] w-[80%] p-5 mx-auto mt-60 text-white z-20 absolute left-1/2 -translate-x-1/2">
@@ -55,19 +54,19 @@ function Login() {
 
         <form onSubmit={handleSubmit}>
           <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
             type="text"
             placeholder="Email"
             className="border w-full p-3 rounded mb-3 bg-gray-700"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
-            value={pass}
-            onChange={(e) => setPass(e.target.value)}
             type="password"
             placeholder="Password"
             className="border w-full p-3 rounded bg-gray-700"
+            value={pass}
+            onChange={(e) => setPass(e.target.value)}
           />
 
           {msg && <p className="mt-2 text-red-400">{msg}</p>}
