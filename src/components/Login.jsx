@@ -22,7 +22,7 @@ function Login() {
     setMsg("");
 
     try {
-      const { data } = await axios.post("https://netflix-backend-d8c9.vercel.app", {
+      const { data } = await axios.post("http://localhost:4000/login", {
         email,
         password: pass,
       });
